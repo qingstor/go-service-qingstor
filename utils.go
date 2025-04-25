@@ -279,9 +279,7 @@ func (s *Service) formatError(op string, err error, name string) error {
 // If work dir is the root path, set it to "/".
 func isWorkDirValid(wd string) bool {
 	return strings.HasPrefix(wd, "/") && // must start with "/"
-		strings.HasSuffix(wd, "/") && // must end with "/"
-		!strings.HasPrefix(wd, "//") && // not start with more than one "/"
-		!strings.HasSuffix(wd, "//") // not end with more than one "/"
+		strings.HasSuffix(wd, "/") // must end with "/"
 }
 
 // getAbsPath will calculate object storage's abs path
